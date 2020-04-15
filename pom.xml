@@ -235,9 +235,28 @@
 
 
     </profiles>
-
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <id>regex-property</id>
+                        <goals>
+                            <goal>regex-property</goal>
+                        </goals>
+                        <configuration>
+                            <name>tag.version</name>
+                            <value>${hive.version}</value>
+                            <regex>^([0-9]+)\.([0-9]+)\.([0-9]+)$</regex>
+                            <replacement>$1_$2_$3</replacement>
+                            <failIfNoMatch>true</failIfNoMatch>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -249,7 +268,9 @@
                         <phase>package</phase>
                     </execution>
                 </executions>
+
                 <configuration>
+                    <finalName>${project.artifactId}-${project.version}-hive${tag.version}</finalName>
                     <filters>
                         <filter>
                             <artifact>*:*</artifact>

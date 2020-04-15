@@ -4,8 +4,9 @@
 
     mvn clean package
 
-copy the `target/io.github.mrzhangboss-1.0-SNAPSHOT.jar` to your flink lib dir (like `/opt/flink/lib`)
-It test in  `hive-2.3.4` + `hadoop-2.7.2`
+copy the `target/io.github.mrzhangboss-1.0-SNAPSHOT-hive2_3_4.jar` to your flink lib dir (like `/opt/flink/lib`) or copy a release version compare with your hive.
+It test ok in  `hive-2.3.4` + `hadoop-2.7.2`
+
 
 **For More Version**:
 
