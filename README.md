@@ -7,6 +7,7 @@
 copy the `target/io.github.mrzhangboss-1.0-SNAPSHOT-hive2_3_4.jar` to your flink lib dir (like `/opt/flink/lib`) or copy a release version compare with your hive.
 It test ok in  `hive-2.3.4` + `hadoop-2.7.2`
 
+PS: If you use high hadoop version, you may meet `java.lang.NoClassDefFoundError`, try copy`$HIVE_HOME/lib/javax.jdo-3.2.0-m3.jar` and `$HIVE_HOME/lib/datanucleus-*` to flink lib .
 
 **For More Version**:
 
